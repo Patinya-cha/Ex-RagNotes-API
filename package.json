@@ -23,6 +23,7 @@
     "helmet": "^8.1.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.13.2",
-    "openai": "^4.97.0"
+    "openai": "^4.97.0",
+    "serverless-http": "^4.0.0"
   }
 }
