@@ -87,22 +87,29 @@ app.use(errorHandler);
 
 const PORT = process.env.PORT || 3000;
 
-(async () => {
-  try {
-    // await connectMongo();
-    // // await connectTurso();
-    // app.listen(PORT, () => {
-    //   console.log(`Server listening on port ${PORT} ✅`);
-    // });
-    serverless(app)
-  } catch (err) {
-    console.error("❌ Startup error:", err);
-    process.exit(1);
-  }
-})();
+// (async () => {
+//   try {
+//     await connectMongo();
+//     // // await connectTurso();
+//     // app.listen(PORT, () => {
+//     //   console.log(`Server listening on port ${PORT} ✅`);
+//     // });
+//     serverless(app)
+//   } catch (err) {
+//     console.error("❌ Startup error:", err);
+//     process.exit(1);
+//   }
+// })();
+
+await connectMongo();
+// await connectTurso();
+
+export default function handler(req, res) {
+  return app(req, res);
+}
 
 // Handle unhandled promise rejections globally
-process.on("unhandledRejection", (err) => {
-  console.error("💥 Unhandled Rejection:", err.message);
-  process.exit(1);
-});
+// process.on("unhandledRejection", (err) => {
+//   console.error("💥 Unhandled Rejection:", err.message);
+//   process.exit(1);
+// });
